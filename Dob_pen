@@ -1,0 +1,38 @@
+import matplotlib.pyplot as plt
+
+import numpy as np
+
+import seaborn as sns
+
+%matplotlib inline
+
+flowers_df = sns.load_dataset("iris")
+
+a = flowers_df.sepal_length  
+
+b = flowers_df.sepal_width  
+
+# print (flowers_df)
+
+sns.set_style("darkgrid")
+
+plt.title("Distribution of Sepal Width")
+
+# plt.figure(figsize = (10,5))
+
+# sns.scatterplot(x=flowers_df.sepal_length, y=flowers_df.sepal_width , hue=flowers_df.species , s=100);
+
+setosa_df = flowers_df[flowers_df.species == 'setosa']
+
+versicolor_df = flowers_df[flowers_df.species == 'versicolor']
+
+virginica_df = flowers_df[flowers_df.species == 'virginica']
+
+plt.hist([setosa_df.sepal_width,versicolor_df.sepal_width,virginica_df.sepal_width],stacked=True, bins=np.arange(2, 5, 0.25));
+
+# plt.hist(versicolor_df.sepal_width, alpha=0.4, bins=np.arange(2, 5, 0.25));
+
+# print (virginica_df)
+
+# plt.hist(b,bins=10)
+
